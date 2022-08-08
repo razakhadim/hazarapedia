@@ -52,7 +52,8 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+# Temporary disabling this
+# .env*
 
 # gatsby files
 .cache/
@@ -67,5 +68,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-.vercel
