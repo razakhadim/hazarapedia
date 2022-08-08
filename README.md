@@ -5,6 +5,8 @@ Hazarapedia V3 Gatsby.js + Stoyblok
 ## Build Setup
 
 ``` bash
+# clone
+$ git clone 
 # install Gatsby CLI
 $ npm install -g gatsby-cli
 
