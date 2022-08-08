@@ -1,4 +1,3 @@
-import { sbEditable } from '@storyblok/storyblok-editable'
 import React from 'react'
 import { render } from 'storyblok-rich-text-react-renderer'
 

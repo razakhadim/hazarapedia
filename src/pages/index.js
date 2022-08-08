@@ -16,7 +16,7 @@ export default function PageIndex({ data, location }) {
 
 export const query = graphql`
   {
-    story: storyblokEntry(full_slug: { eq: "en/" }) {
+    story: storyblokEntry(full_slug: { eq: "home" }) {
       name
       content
       full_slug
