@@ -11,7 +11,6 @@ const sbClient = new StoryblokClient({
   }
 })
 
-
 export default function useStoryblok(originalStory, location) {
   let [story, setStory] = useState(originalStory)
 

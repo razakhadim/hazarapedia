@@ -4,7 +4,7 @@ import { render } from "storyblok-rich-text-react-renderer"
 import { useStaticQuery, graphql } from "gatsby"
 import DynamicComponent from './DynamicComponent'
 
-const BlogPost = ({ blok }) => {
+const BlogPostOld = ({ blok }) => {
   const related = blok.related && blok.related.length ? (<DynamicComponent blok={blok.related[0]} key={blok.related[0]._uid}/>) : null
   const { authors } = useStaticQuery(graphql`
   {
@@ -54,4 +54,4 @@ const BlogPost = ({ blok }) => {
   )
 }
 
-export default BlogPost
+export default BlogPostOld

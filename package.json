@@ -29,7 +29,8 @@
         "react-dom": "^17.0.2",
         "react-helmet": "^6.1.0",
         "storyblok-js-client": "^4.2.0",
-        "storyblok-rich-text-react-renderer": "^2.5.2"
+        "storyblok-rich-text-react-renderer": "^2.5.2",
+        "tailwind-styled-components": "^2.1.8"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.4",

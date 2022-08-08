@@ -2,12 +2,13 @@ import React from 'react'
 import Teaser from './Teaser'
 import Feature from './Feature'
 import Grid from './Grid'
-import BlogPost from './BlogPost'
+import BlogPost from './BlogPostOld'
 import Slide from './Slide'
 import Placeholder from './Placeholder'
 import ArticleTeaser from './ArticleTeaser'
 import FeaturedArticles from './FeaturedArticles'
 import PostsList from './PostsList'
+import TextSection from './sections/textSection'
 
 const Components = {
   'teaser': Teaser,
@@ -17,7 +18,7 @@ const Components = {
   'slide': Slide,
   'article-teaser': ArticleTeaser,
   'featured-articles': FeaturedArticles,
-  'posts-list': PostsList
+  'textSection': TextSection,
 }
 
 const DynamicComponent = ({blok}) => {

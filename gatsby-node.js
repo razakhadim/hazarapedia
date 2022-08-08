@@ -14,13 +14,14 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve('src/templates/blog-entry.js')
+    const blogPostTemplate = path.resolve('src/templates/blogPost.js')
     const pageTemplate = path.resolve('src/templates/page.js')
+    const englishArticleTemplate = path.resolve('src/templates/englishArticle.js')
 
     resolve(
       graphql(
         `{
-          posts: allStoryblokEntry(filter: {field_component: {eq: "blogpost"}}) {
+          posts: allStoryblokEntry(filter: {field_component: {eq: "blogPost"}}) {
             edges {
               node {
                 id
@@ -44,6 +45,18 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+          englishArticles: allStoryblokEntry(filter: {field_component: {eq: "englishArticle"}}) {
+            edges {
+              node {
+                id
+                name
+                slug
+                field_component
+                full_slug
+                content
+              }
+            }
+          }
         }`
       ).then(result => {
         if (result.errors) {
@@ -53,9 +66,10 @@ exports.createPages = ({ graphql, actions }) => {
 
         const allPosts = result.data.posts.edges
         const allPages = result.data.pages.edges
+        const allEnglishArticles = result.data.englishArticles.edges
 
         allPosts.forEach((entry) => {
-          const slug = rewriteSlug(entry.node.full_slug)
+          const slug = entry.node.full_slug
           const page = {
             path: `/${slug}`,
             component: blogPostTemplate,
@@ -66,8 +80,21 @@ exports.createPages = ({ graphql, actions }) => {
           createPage(page)
         })
 
+        allEnglishArticles.forEach((entry) => {
+          const slug = entry.node.full_slug
+          const page = {
+            path: `/${slug}`,
+            component: englishArticleTemplate,
+            context: {
+              story: entry.node
+            }
+          }
+          createPage(page)
+        }
+        )
+
         allPages.forEach((entry) => {
-          let slug = rewriteSlug(entry.node.full_slug)
+          let slug = entry.node.full_slug
           const page = {
             path: `/${slug}`,
             component: pageTemplate,
