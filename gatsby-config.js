@@ -37,6 +37,22 @@ module.exports = {
         prefixDefault: false,
         useLangKeyLayout: false,
       },
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        openGraph: {
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://www.hazarapedia.org./',
+          site_name: 'Hazarapedia, the online Hazara Encyclopedia',
+        },
+        twitter: {
+          handle: '@hazarapedia',
+          site: '@site',
+          cardType: 'summary_large_image',
+        },
+      },
+    },
   ],
 }
