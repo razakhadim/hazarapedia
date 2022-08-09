@@ -24,12 +24,13 @@ exports.createPages = ({ graphql, actions }) => {
           posts: allStoryblokEntry(filter: {field_component: {eq: "blogPost"}}) {
             edges {
               node {
-                id
-                name
-                slug
-                field_component
-                full_slug
                 content
+                field_component
+                id
+                full_slug
+                slug
+                created_at(formatString: "DD MMM YYYY HH:m")
+                name
               }
             }
           }

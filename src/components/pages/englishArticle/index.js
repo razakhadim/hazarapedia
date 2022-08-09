@@ -1,7 +1,6 @@
 import React from 'react'
 import { sbEditable } from '@storyblok/storyblok-editable'
 import SectionMapper from '../../common/sectionMapper'
-import { MARK_STYLED } from 'storyblok-rich-text-react-renderer'
 
 const EnglishArticleTemplate = ({ blok }) => {
 

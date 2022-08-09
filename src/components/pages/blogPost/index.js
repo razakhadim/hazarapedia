@@ -13,7 +13,6 @@ const BlogPostTemplate = ({ blok }) => {
   const blogIntro = render(blok.content && blok.content.blogIntro)
   const sections = blok.content && blok.content.sections
 
-
   return (
     <PageLayout>
       <div {...sbEditable(blok)}>
