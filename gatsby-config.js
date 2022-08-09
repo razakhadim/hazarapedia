@@ -6,11 +6,18 @@
 
 module.exports = {
   /* Your site config here */
+
+  siteMetadata: {
+    title: 'Hazarapedia, the online Hazara encyclopedia',
+    description: 'Hazarapedia is a free online encyclopedia for the Hazara people. It is a community-driven encyclopedia that is open to all people who want to contribute to the encyclopedia.',
+    siteUrl: `https://www.hazarapedia.org/`,
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-source-storyblok',
       options: {
