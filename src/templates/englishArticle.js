@@ -1,6 +1,6 @@
 import React from 'react'
 import useStoryblok from '../utils/storyblok'
-import EnglishArticleTemplate from '../components/pages/englishArticle/index'
+import EnglishArticleTemplate from '../components/pages/EnglishArticle'
 
 const EnglishArticle = ({ pageContext, location }) => {
   const story = useStoryblok(pageContext.story, location)

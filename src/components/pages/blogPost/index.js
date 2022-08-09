@@ -1,17 +1,14 @@
 import React from 'react'
-import DynamicComponent from '../../../components/dynamicComponent'
+import DynamicComponent from '../../dynamicComponent'
 import useStoryblok from '../../../utils/storyblok'
-import Layout from '../../../components/layout'
+import Layout from '../../layout'
 import { sbEditable } from '@storyblok/storyblok-editable'
 import { render } from 'storyblok-rich-text-react-renderer'
 import SectionMapper from '../../common/sectionMapper'
 
 const BlogPostTemplate = ({blok, location}) => {
-  // console.log('page ctx', pageContext)
-  // const story = useStoryblok(pageContext.story, location)
-  const content =
-    blok.content &&
-    blok.content.sections.map(childBlok => <SectionMapper blok={childBlok} key={childBlok._uid}/>)
+
+    const sections = blok.content && blok.content.sections
     const intro = blok.content.intro
     const title = blok.content.title
     const longText = render(blok.content.long_text)
@@ -24,9 +21,14 @@ const BlogPostTemplate = ({blok, location}) => {
     <h1> {title} </h1>
     <p> {intro} </p>
     <div> {longText} </div>
-   { content }
+    {sections && sections.map(section =>
+    <SectionMapper 
+    blok={section}
+    /> )
+  }
     </div>
     </Layout>
+ 
   )
 }
 

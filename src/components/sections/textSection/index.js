@@ -3,15 +3,22 @@ import { render } from 'storyblok-rich-text-react-renderer'
 
 const TextSection = ({blok}) => {
 
-  const { sectionTitle, sectionText } = blok
-  const richText = render(sectionText)
+  const { 
+    sectionTitle, 
+    sectionImage, 
+    sectionText, 
+    sectionAnchorId, 
+    imageLocation, 
+    reverseOnMobile 
+  } = blok
 
-  console.log('textSection', sectionTitle, richText)
   return (
     <div>
       {sectionTitle}
-      {richText}
-      
+      {render(sectionText)}
+      {sectionAnchorId}
+      {reverseOnMobile}
+      {imageLocation}
       </div>
   )
 }
