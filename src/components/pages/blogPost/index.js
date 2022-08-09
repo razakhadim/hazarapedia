@@ -15,20 +15,22 @@ const BlogPostTemplate = ({ blok }) => {
 
 
   return (
-      <PageLayout>
-        <div {...sbEditable(blok)}>
-          <Styled.BlogTitle>
-            {blogTitle}
-          </Styled.BlogTitle>
-            <Styled.FeatureImage src={featuredImage} alt={featuredImage.alt} />
+    <PageLayout>
+      <div {...sbEditable(blok)}>
+        <Styled.BlogTitle>
+          {blogTitle}
+        </Styled.BlogTitle>
+        <Styled.BlogIntro>
           {blogIntro}
-          {sections && sections.map(section =>
-            <SectionMapper
-              blok={section}
-            />)
-          }
-        </div>
-      </PageLayout>
+        </Styled.BlogIntro>
+        <Styled.FeatureImage src={featuredImage} alt={featuredImage.alt} />
+        {sections && sections.map(section =>
+          <SectionMapper
+            blok={section}
+          />)
+        }
+      </div>
+    </PageLayout>
 
   )
 }

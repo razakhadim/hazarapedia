@@ -5,6 +5,15 @@ text-2xl
 font-bold
 leading-tight
 mb-4
-font-san
+font-sans
+lg:text-3xl
+`
+
+export const HeadingH2 = tw.h2`
+text-2xl
+font-bold
+leading-tight
+mb-4
+font-sans
 lg:text-3xl
 `

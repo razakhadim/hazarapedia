@@ -14,3 +14,11 @@ w-full
 export const ImageConatiner = tw.div`
 
 `
+
+export const BlogIntro = tw.p`
+text-base
+leading-loose
+font-sans
+pb-4
+lg:text-lg
+`
