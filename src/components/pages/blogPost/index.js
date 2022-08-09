@@ -1,34 +1,35 @@
 import React from 'react'
-import DynamicComponent from '../../dynamicComponent'
-import useStoryblok from '../../../utils/storyblok'
-import Layout from '../../layout'
 import { sbEditable } from '@storyblok/storyblok-editable'
 import { render } from 'storyblok-rich-text-react-renderer'
 import SectionMapper from '../../common/sectionMapper'
+import PageLayout from '../../common/PageLayout'
 
-const BlogPostTemplate = ({blok, location}) => {
+import * as Styled from './BlogPost.styled.js'
 
-    const sections = blok.content && blok.content.sections
-    const intro = blok.content.intro
-    const title = blok.content.title
-    const longText = render(blok.content.long_text)
+const BlogPostTemplate = ({ blok }) => {
 
-    console.log('this is the blok', blok.content.sections )
+  const featuredImage = blok.content.featuredImage.filename
+  const blogTitle = blok.content.blogTitle || blok.name
+  const blogIntro = render(blok.content && blok.content.blogIntro)
+  const sections = blok.content && blok.content.sections
+
 
   return (
-    <Layout location={location}>
-   <div {...sbEditable(blok)}>
-    <h1> {title} </h1>
-    <p> {intro} </p>
-    <div> {longText} </div>
-    {sections && sections.map(section =>
-    <SectionMapper 
-    blok={section}
-    /> )
-  }
-    </div>
-    </Layout>
- 
+      <PageLayout>
+        <div {...sbEditable(blok)}>
+          <Styled.BlogTitle>
+            {blogTitle}
+          </Styled.BlogTitle>
+            <Styled.FeatureImage src={featuredImage} alt={featuredImage.alt} />
+          {blogIntro}
+          {sections && sections.map(section =>
+            <SectionMapper
+              blok={section}
+            />)
+          }
+        </div>
+      </PageLayout>
+
   )
 }
 
